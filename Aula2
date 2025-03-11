@@ -1,0 +1,77 @@
+let a=20
+const b=15
+
+let string = "123"
+let num = Number(string)
+console.log(typeof num)
+
+console.log(parseInt("4,7"))
+let array = [1,2,3]
+console.log(array.toString())
+
+let oi = "oi"
+oi = null
+let tchau = "tchau"
+console.log(oi||tchau);
+
+//&& serve para comparação AND - || serve para comparar variaveis e executar a primeira que for verdadeira
+
+let e = "e"
+console.log(e.length>2&&"Ta certinho"||"Errado bro")
+//ou
+console.log(e.length>2?"Ta certinho":"Errado bro")
+
+let valor = 5;
+
+switch(valor){
+    case 5:
+        console.log("O valor é " + valor)
+        break
+}
+
+let lista = [1,2,3,4,5,6,7,8,9]
+
+for (let index = 0; index < lista.length; index++) {
+    console.log(lista[index])
+}
+console.log("---------------------------------------")
+//ou
+for (const valor of lista) {
+    console.log(valor)
+}
+console.log("---------------------------------------")
+console.log(lista.join(","));
+
+const objeto = {cor: "azul", ano: "2004"};
+
+//transformando variavel em função e seus objetos em parametros
+objeto.anoEcor = function() {
+    console.log(this.ano + ": " + this.cor)
+}
+
+console.log(objeto)
+objeto.anoEcor();
+
+class Carro {
+    constructor(ano, cor) {
+        this.ano = ano,
+        this.cor = cor;
+    }
+    anoEcor(){
+        console.log(this.ano + ": " + this.cor)
+    }
+}
+
+let teste = new Carro("1999", "Verde")
+
+teste.anoEcor();
+
+function soma (a,b){
+    return a+b;
+}
+
+function opera(fun,a,b){
+    return fun(a,b);
+}
+
+console.log(opera(soma,2,3))
