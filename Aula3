@@ -1,0 +1,106 @@
+function pedro (){
+    return "O INTER É MINUSCULO"
+}
+
+console.log(pedro())
+
+function soma(a,b) {
+    return a+b
+}
+
+function sub(a,b) {
+    return a-b
+}
+
+function calc(comando, a,b){
+
+    let operacao;
+
+    if(comando=="+") {
+        operacao=soma
+    }
+    if(comando=="-"){
+        operacao=sub
+    }
+
+    return operacao(a,b)
+}
+
+console.log(calc("-", 8,5))
+
+function exec(operacao, a,b){
+    return operacao(a,b)
+}
+
+console.log(exec(soma, 1,7))
+
+//arrow function
+const sum = (a, b) => a + b;
+
+console.log(sum(5, 3)); // 8
+
+let array = [1,2,3,4,5,6,7,8,9]
+
+function valor(elemento){
+    console.log(elemento)
+}
+array.forEach(valor)
+console.log("-------------------------------------------------------------------")
+console.log("Usando arrow function")
+array.forEach((valor)=>console.log(valor))
+
+console.log("-------------------------------------------------------------------")
+array.forEach(function(numero){
+    console.log(numero * 3)
+})
+
+console.log("-------------------------------------------------------------------")
+
+array.forEach((valor,ind)=>console.log(ind+ ":"+valor))
+
+console.log("-------------------------------------------------------------------")
+
+let lista1 = [1,2,3,8]
+
+const mudarX = 3
+let lista2 = lista1.forEach((valor, index)=>{if(index===mudarX){
+    valor = 15;}console.log(valor)})
+
+console.log("-------------------------------------------------------------------")
+
+let listaMult = lista1.map(function(valor) {return valor*2})
+console.log(lista1)
+console.log(listaMult)
+
+console.log("-------------------------------------------------------------------")
+
+let newArray = [1,2,3,4,5]
+let nova = newArray.map(function(valor, id) { id+=1 
+    return {id,valor}})
+
+console.log(nova)
+
+console.log("-------------------------------------------------------------------")
+
+let lista3=newArray.filter(function(valor){
+    if(valor<3){
+        return true
+    } else {
+        return false
+    }
+})
+
+console.log(lista3)
+
+console.log("-------------------------------------------------------------------")
+
+const listaNova = [{id:1,valor:2}, {id:3, valor:8}, {id:5, valor:6}, {id:2, valor:9}]
+let remover = listaNova.filter(function(valor,id) {
+    if(valor.id===2){
+        return false
+    } else{
+        return true
+    }
+})
+
+console.log(remover)
