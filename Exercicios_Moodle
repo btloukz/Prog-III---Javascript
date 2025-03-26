@@ -1,0 +1,57 @@
+let lista = [1,2,3,4]
+let lista2 = lista.filter((valor)=>valor % 2 === 0)
+
+console.log(lista2)
+
+let num = [2,3,4,5,6]
+let primos = num.filter((valor)=>{
+    for (i=2;i<valor;i++){
+        if (valor % i === 0) return false;
+    } 
+    return valor > 1;
+})
+
+console.log(primos)
+
+tamanho = 4
+let string = ["a", "ab", "abcd"]
+let novo = string.filter((valor)=> valor.length === tamanho)
+
+console.log(novo)
+
+let ativo = [{ativo:true}, {aativo:false}]
+let verifica = ativo.filter(valor=>{
+    if(valor.ativo===false) {
+        return false
+    } else {return true}})
+
+console.log(verifica)
+
+let numbers = [3,5,7]
+let quad = numbers.map((valor)=>(valor * valor))
+console.log(quad)
+
+let palavras = ["hello", "world"]
+let maiuscula = palavras.map((palavra)=>palavra.toUpperCase(palavra))
+console.log(maiuscula)
+
+let nome = [{nome:"Lucas"}, {nome:"Juliana"}]
+let extrair = nome.map((name)=>name.nome)
+console.log(extrair)
+
+let numeros = [1,2,3,4]
+let dobrar = numeros.map((valor)=>{if(valor % 2 == 0){
+    return valor * 2
+    } else {
+        return valor
+    }
+})
+console.log(dobrar)
+
+let int = [2,5,8]
+let transformar = int.map((num)=>{num.toString();return num+"kg"})
+console.log(transformar)
+
+let precos = [{nome: "apple", preco: 2}, {nome: "banana", preco: 3}]
+let val = precos.map((valor)=>{return valor.preco})
+console.log(val)
