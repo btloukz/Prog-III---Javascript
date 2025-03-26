@@ -1,57 +1,111 @@
-let lista = [1,2,3,4]
-let lista2 = lista.filter((valor)=>valor % 2 === 0)
+// console.log("1 ---------------------------------------------------")
 
-console.log(lista2)
+// let lista = [1,2,3,4]
+// let lista2 = lista.filter((valor)=>valor % 2 === 0)
 
-let num = [2,3,4,5,6]
-let primos = num.filter((valor)=>{
-    for (i=2;i<valor;i++){
-        if (valor % i === 0) return false;
-    } 
-    return valor > 1;
-})
+// console.log(lista2)
 
-console.log(primos)
+// console.log("2 ---------------------------------------------------")
 
-tamanho = 4
-let string = ["a", "ab", "abcd"]
-let novo = string.filter((valor)=> valor.length === tamanho)
+// let num = [2,3,4,5,6]
+// let primos = num.filter((valor)=>{
+//     for (let i=2;i<valor;i++){
+//         if (valor % i === 0) return false;
+//     } 
+//     return valor > 1;
+// })
 
-console.log(novo)
+// console.log(primos)
 
-let ativo = [{ativo:true}, {aativo:false}]
-let verifica = ativo.filter(valor=>{
-    if(valor.ativo===false) {
-        return false
-    } else {return true}})
+// console.log("3 ---------------------------------------------------")
 
-console.log(verifica)
+// let tamanho = 4
+// let string = ["a", "ab", "abcd"]
+// let novo = string.filter((valor)=> valor.length === tamanho)
 
-let numbers = [3,5,7]
-let quad = numbers.map((valor)=>(valor * valor))
-console.log(quad)
+// console.log(novo)
 
-let palavras = ["hello", "world"]
-let maiuscula = palavras.map((palavra)=>palavra.toUpperCase(palavra))
-console.log(maiuscula)
+// console.log("4 ---------------------------------------------------")
 
-let nome = [{nome:"Lucas"}, {nome:"Juliana"}]
-let extrair = nome.map((name)=>name.nome)
-console.log(extrair)
+// let ativo = [{ativo:true}, {aativo:false}]
+// let verifica = ativo.filter(valor=>{
+//     if(valor.ativo===false) {
+//         return false
+//     } else {return true}})
 
-let numeros = [1,2,3,4]
-let dobrar = numeros.map((valor)=>{if(valor % 2 == 0){
-    return valor * 2
-    } else {
-        return valor
-    }
-})
-console.log(dobrar)
+// console.log(verifica)
 
-let int = [2,5,8]
-let transformar = int.map((num)=>{num.toString();return num+"kg"})
-console.log(transformar)
+// console.log("5 ---------------------------------------------------")
 
-let precos = [{nome: "apple", preco: 2}, {nome: "banana", preco: 3}]
-let val = precos.map((valor)=>{return valor.preco})
-console.log(val)
+// let numbers = [3,5,7]
+// let quad = numbers.map((valor)=>(valor * valor))
+// console.log(quad)
+
+// console.log("6 ---------------------------------------------------")
+
+// let palavras = ["hello", "world"]
+// let maiuscula = palavras.map((palavra)=>palavra.toUpperCase(palavra))
+// console.log(maiuscula)
+
+// console.log("7 ---------------------------------------------------")
+
+// let nome = [{nome:"Lucas"}, {nome:"Juliana"}]
+// let extrair = nome.map((name)=>name.nome)
+// console.log(extrair)
+
+// console.log("8 ---------------------------------------------------")
+
+// let numeros = [1,2,3,4]
+// let dobrar = numeros.map((valor)=>{if(valor % 2 == 0){
+//     return valor * 2
+//     } else {
+//         return valor
+//     }
+// })
+// console.log(dobrar)
+
+// console.log("9 ---------------------------------------------------")
+
+// let int = [2,5,8]
+// let transformar = int.map((num)=>{num.toString();return num+"kg"})
+// console.log(transformar)
+
+// console.log("10 ---------------------------------------------------")
+
+// let precos = [{nome: "apple", preco: 2}, {nome: "banana", preco: 3}]
+// let val = precos.map((valor)=>{return valor.preco})
+// console.log(val)
+
+// console.log("11 ---------------------------------------------------")
+
+// let valores = [1,2,3,4]
+// let multiplicar = valores.map((valor)=>{if(valor % 2 == 0){
+//     return valor * 2
+//     } else {
+//         return valor * 3
+//     }
+// })
+// console.log(multiplicar)
+
+// console.log("12 ---------------------------------------------------")
+
+// let fruits = ["laranja", "uva"]
+// let prefixo = fruits.map((nome)=>{return "Item: "+nome})
+// console.log(prefixo)
+
+// console.log("13 ---------------------------------------------------")
+
+// let array = [{preco:8, quantidade:6}, {preco:6, quantidade:12}]
+// let calc = array.map((valor)=>{return valor.preco * valor.quantidade})
+// console.log(calc)
+
+// console.log("14 ---------------------------------------------------")
+
+// let datas = ["2024-09-22"]
+// let novo = datas.map((data)=>{let [ano, mes, dia] = data.split("-")
+//     return `${dia}/${mes}/${ano}`
+// })
+// console.log(novo)
+
+// console.log("15 ---------------------------------------------------")
+
