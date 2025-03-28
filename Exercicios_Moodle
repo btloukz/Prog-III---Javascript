@@ -234,3 +234,34 @@
 // let array = [{nome: "A", ativo: true}, {nome: "B", ativo: false}, {nome: "C", ativo: true}]
 // let novo = array.filter((objeto)=>objeto.ativo).map((objeto)=>objeto.nome).join(",")
 // console.log(novo)
+
+// console.log("34 ---------------------------------------------------")
+
+// let array = [{estoque: 90, preco: true}, {preco: 150, estoque: false}]
+// let novo = array.filter((valor)=>valor.preco>100).find((valor)=>valor.estoque)
+// console.log(novo)
+
+// console.log("35 ---------------------------------------------------")
+
+// let array = [2,4,6,9,10]
+// let novo = array.map((valor)=>valor**2).filter((valor)=>valor>50).reduce((valor1, valor2)=>valor1+valor2)
+// console.log(novo)
+
+// console.log("36 ---------------------------------------------------")
+
+// let array = ["apple", "Avocado", "Banana"]
+// let novo = array.filter((string)=>string.toLowerCase().startsWith("a")).map((string)=>string.toUpperCase(string)).every((valor)=>valor.length>=5)
+// console.log(novo)
+
+// console.log("37 ---------------------------------------------------")
+
+// let array = [1,2,4]
+// let novo = [array.reduce((valor1, valor2)=> valor1+valor2)].every((valor)=>valor % 2 === 0)
+// console.log(novo)
+
+// console.log("38 ---------------------------------------------------")
+
+// let array = [16, 36, 64, 49, 81]
+// let novo = array.filter((valor)=>valor<50).map((valor)=>valor**(1/2)).reduce((valor1,valor2)=>valor1*valor2)
+// console.log(novo)
+
