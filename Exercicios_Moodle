@@ -11,7 +11,7 @@
 // let primos = num.filter((valor)=>{
 //     for (let i=2;i<valor;i++){
 //         if (valor % i === 0) return false;
-//     } 
+//     }
 //     return valor > 1;
 // })
 
@@ -27,7 +27,7 @@
 
 // console.log("4 ---------------------------------------------------")
 
-// let ativo = [{ativo:true}, {aativo:false}]
+// let ativo = [{ativo:true}, {ativo:false}]
 // let verifica = ativo.filter(valor=>{
 //     if(valor.ativo===false) {
 //         return false
@@ -109,3 +109,128 @@
 
 // console.log("15 ---------------------------------------------------")
 
+// let array = ["Pão", "Leite"]
+// let html = array.map((elemento)=>{return "<li>"+elemento+"<li>"})
+// console.log(html)
+
+// console.log("16 ---------------------------------------------------")
+
+// let array = [true, false, true]
+// let novo = array.map((valor)=>{
+//     if (valor){
+//         valor = 1
+//     } else {
+//         valor = 0
+//     }
+//     return valor;
+// })
+
+// console.log(novo)
+
+// console.log("17 ---------------------------------------------------")
+
+// let array = [[1, 2], [3, 4, 5], [10,1]]
+// let soma = array.map(valor => valor.reduce((num1, num2)=>num1 + num2))
+// console.log(soma)
+
+// console.log("18 ---------------------------------------------------")
+
+// let array = [2,7,9]
+// let soma = array.reduce((a,b)=>a+b)
+// console.log(soma)
+
+// console.log("19 ---------------------------------------------------")
+
+// let array = [2,7,9]
+// let produto = array.reduce((a,b)=>a*b)
+// console.log(produto)
+
+// console.log("20 ---------------------------------------------------")
+
+// let string = ["a", "abc", "abcde"]
+// let maior = string.reduce((a,b)=>{
+//     if (a>b){
+//     return a
+//     } else {
+//         return b
+//     }
+// })
+// console.log(maior)
+
+// console.log("21 ---------------------------------------------------")
+
+// let array = ["Hello", " ", "World"]
+// let concatena = array.reduce((a,b)=>{return a+b})
+// console.log(concatena)
+
+// console.log("22 ---------------------------------------------------")
+
+// let array = [2,4,6,8]
+// let par = array.every((valor)=>valor %2===0)
+// console.log(par)
+
+// console.log("23 ---------------------------------------------------")
+
+// let array = ["a", "ab"]
+// let novo = array.every((string)=>string.length>=1)
+// console.log(novo)
+
+// console.log("24 ---------------------------------------------------")
+
+// let array = [{id:1}, {id:2}]
+// let novo = array.every((valor)=>valor.id)
+// console.log(novo)
+
+// console.log("25 ---------------------------------------------------")
+
+// let array = [1,2,-3,4]
+// let novo = array.every((valor)=>valor>0)
+// console.log(novo)
+
+// console.log("26 ---------------------------------------------------")
+
+// let array = [5,9,10,11,14]
+// let novo = array.find((valor)=>valor>10)
+// console.log(novo)
+
+// console.log("27 ---------------------------------------------------")
+
+// let array = ["Apple", "banana", "abacaxi"]
+// let novo = array.find((letra)=>letra.includes("a"))
+// console.log(novo)
+
+// console.log("28 ---------------------------------------------------")
+
+// let array = [{id:1}, {id:2}, {id:3}]
+// let novo = array.find((elemento)=>elemento.id===2)
+// console.log(novo)
+
+// console.log("29 ---------------------------------------------------")
+
+// let array = [-1,-4,9,12,13,16]
+// let novo = array.find((valor)=>valor>0 && valor%2===0)
+// console.log(novo)
+
+// console.log("30 ---------------------------------------------------")
+
+// let array = [2,-3,6,9,-12]
+// let novo = array.filter((valor)=>valor>0).map((valor)=>valor*valor).reduce((valor1, valor2)=>valor1+valor2)
+// console.log(novo)
+
+// console.log("31 ---------------------------------------------------")
+
+// let array = [3,6,8,9,11,14,16]
+// let novo = array.filter((valor)=>valor%2===0).find((valor)=>valor>10)
+// console.log(novo)
+
+// console.log("32 ---------------------------------------------------")
+
+// let array = ["a","ab","abc","abcd","abcde"]
+// let novo = array.map((string)=>string.length).filter((string)=>string>3).every((string)=>string%2===0)
+// console.log(novo)
+
+// console.log("33 ---------------------------------------------------")
+
+// let array = [{nome: "A", ativo: true}, {nome: "B", ativo: false}, {nome: "C", ativo: true}]
+// let novo = array.filter((objeto)=>objeto.ativo).map((objeto)=>objeto.nome).join(",")
+// console.log(novo)
