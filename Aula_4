@@ -78,6 +78,17 @@ promessa.then(
 // console.log(aux)
 // console.log("Depois")
 
+OU
+
+// async function rodar(){
+//     let nome = await input({message: "Fala teu nome: "});
+//     let idade = await input({message: "Sua idade: "})
+//     console.log(nome, idade)
+//     return{nome:nome, idade:idade}
+// }
+// console.log("Antes")
+// rodar().then((retorno)=>console.log(retorno))
+
 
 
 
