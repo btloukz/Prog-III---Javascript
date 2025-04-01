@@ -54,7 +54,29 @@ promessa.then(
     console.log(erro)
 })
 
+---------------------------------------------------------------------------------------------------------------TESTES.JS--------------------------------------------------------------------------------------------------------------------------------------
 
+// //simplificando tudo com await -> simplificando minha promessa e meu then
+
+// import { input } from '@inquirer/prompts';
+
+// // let nome = await input({message: "Fala teu nome: "});
+// // let idade = await input({message: "Sua idade: "})
+// // console.log(nome, idade)
+
+// //ASYNC = Transforma uma função em assincrona (Ou virou uma promisse)
+// //AWAIT = Manda esperar (Funciona como o then)
+
+// async function rodar(){
+//     let nome = await input({message: "Fala teu nome: "});
+//     let idade = await input({message: "Sua idade: "})
+//     console.log(nome, idade)
+//     return{nome:nome, idade:idade}
+// }
+// console.log("Antes")
+// let aux = await rodar()
+// console.log(aux)
+// console.log("Depois")
 
 
 
