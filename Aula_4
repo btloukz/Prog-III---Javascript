@@ -50,7 +50,10 @@ function ler (resolve, rejeita) {
 let promessa = new Promise(ler)
 promessa.then(
     (mensagem)=>console.log(mensagem)
-)
+).catch((erro)=>{
+    console.log(erro)
+})
+
 
 
 
