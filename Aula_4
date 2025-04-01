@@ -89,6 +89,19 @@ OU
 // console.log("Antes")
 // rodar().then((retorno)=>console.log(retorno))
 
+TRATANDO ERRO COM THROW NEW ERROR
+
+// async function rodar(){
+//     let nome = await input({message: "Fala teu nome: "});
+//     let idade = await input({message: "Sua idade: "})
+//     if(nome==""){
+//         throw new Error("Erro amigo")
+//     }
+//     console.log(nome, idade)
+//     return{nome:nome, idade:idade}
+// }
+// console.log("Antes")
+// rodar().then((retorno)=>console.log(retorno)).catch((erro)=>console.log(erro))
 
 
 
