@@ -1,0 +1,58 @@
+//npm instal @inquirer/prompts no TERMINAL
+import { input } from '@inquirer/prompts';
+
+//criando agora minha propria promessa
+
+// function ler(resolve, rejeita) {
+//     input({message: "Qual o seu nome?"}).then(
+//          (nome)=>{
+//              if(nome==null || nome==""){
+//                 rejeita("Nome não digitado, ERRO!");
+//              } else {
+//                 resolve("Operação com sucesso! Seja bem vindo, " + nome + "!")
+//              }
+//          })
+// }
+// let promessa = new Promise((ler))
+// promessa.then((msg)=>{
+//     console.log(msg)
+// })
+
+//console.log(promessa)
+
+// let nome = input({message: "Qual o seu nome?"}).then((nome)=>{
+//     console.log("Olá, " + nome)
+// })
+
+//CRIANDO MINHA PRÓPRIA PROMESSA DE NOVO
+
+function ler (resolve, rejeita) {
+    
+    input({message: "Qual seu nome?"}).then(
+        (nome)=>{
+            if (nome==null || nome==""){
+                rejeita("Você não digitou o nome, encerrando antes da IDADE...ERRO!")
+            } else {
+                input({message: "Digite sua idade: "}).then(
+                    (idade)=>{
+                        if(idade==null){
+                            console.log("EROOOOOOOOO")
+                        } else {
+                            resolve(nome + " tem " + idade + " anos de idade!") 
+                        }
+                    }
+                )
+            }
+        }
+    )
+}
+
+let promessa = new Promise(ler)
+promessa.then(
+    (mensagem)=>console.log(mensagem)
+)
+
+
+
+
+
