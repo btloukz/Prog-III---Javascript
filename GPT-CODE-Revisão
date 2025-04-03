@@ -1,8 +1,8 @@
-const prompts = require('@inquirer/prompts');
-const api = require('./CrudAPI'); // Supondo que o arquivo CrudAPI.js esteja no mesmo diretório
+import { input, select, number } from '@inquirer/prompts';
+import api from './CrudAPI.js';
 
 async function exibirMenu() {
-  const { opcao } = await prompts.select({
+  const opcao = await select({
     message: 'Escolha uma operação:',
     choices: [
       { title: 'Criar novo registro', value: 'criar' },
@@ -47,23 +47,14 @@ async function exibirMenu() {
       return;
   }
 
-  // Após a operação, voltar ao menu
   await exibirMenu();
 }
 
 async function criarRegistro() {
-  const { nome, email } = await prompts({
-    type: 'input',
-    name: 'nome',
-    message: 'Digite o nome da pessoa:'
-  });
-  const { email: emailInput } = await prompts({
-    type: 'input',
-    name: 'email',
-    message: 'Digite o e-mail da pessoa:'
-  });
+  const nome = await input('Digite o nome da pessoa:');
+  const email = await input('Digite o e-mail da pessoa:');
 
-  const novoRegistro = await api.criar({ nome, email: emailInput });
+  const novoRegistro = await api.criar({ nome, email });
   console.log(`Novo registro criado: ID: ${novoRegistro.id}, Nome: ${novoRegistro.nome}, E-mail: ${novoRegistro.email}`);
 }
 
@@ -75,11 +66,7 @@ async function listarTodos() {
 }
 
 async function buscarPorId() {
-  const { id } = await prompts({
-    type: 'number',
-    name: 'id',
-    message: 'Digite o ID do registro a ser buscado:'
-  });
+  const id = await number('Digite o ID do registro a ser buscado:');
 
   const registro = await api.lerPorId(id);
   if (registro) {
@@ -90,24 +77,9 @@ async function buscarPorId() {
 }
 
 async function atualizarRegistro() {
-  const { id } = await prompts({
-    type: 'number',
-    name: 'id',
-    message: 'Digite o ID do registro a ser atualizado:'
-  });
-
-  const { nome, email } = await prompts([
-    {
-      type: 'input',
-      name: 'nome',
-      message: 'Digite o novo nome (deixe em branco para não alterar):'
-    },
-    {
-      type: 'input',
-      name: 'email',
-      message: 'Digite o novo e-mail (deixe em branco para não alterar):'
-    }
-  ]);
+  const id = await number('Digite o ID do registro a ser atualizado:');
+  const nome = await input('Digite o novo nome (deixe em branco para não alterar):');
+  const email = await input('Digite o novo e-mail (deixe em branco para não alterar):');
 
   const dadosAtualizados = {};
   if (nome) dadosAtualizados.nome = nome;
@@ -122,11 +94,7 @@ async function atualizarRegistro() {
 }
 
 async function excluirRegistro() {
-  const { id } = await prompts({
-    type: 'number',
-    name: 'id',
-    message: 'Digite o ID do registro a ser excluído:'
-  });
+  const id = await number('Digite o ID do registro a ser excluído:');
 
   try {
     const registroExcluido = await api.excluir(id);
@@ -138,14 +106,14 @@ async function excluirRegistro() {
 
 async function tudoMaiuscula() {
   const registros = await api.lerTodos();
-  registros.map(registro => {
+  registros.forEach(registro => {
     console.log(`${registro.id} - ${registro.nome.toUpperCase()} - ${registro.email.toUpperCase()}`);
   });
 }
 
 async function sobrenomePrimeiro() {
   const registros = await api.lerTodos();
-  registros.map(registro => {
+  registros.forEach(registro => {
     const nomeSeparado = registro.nome.split(' ');
     const sobrenomePrimeiro = `${nomeSeparado[1]}, ${nomeSeparado[0]}`;
     console.log(`${registro.id} - ${sobrenomePrimeiro} - ${registro.email}`);
@@ -153,17 +121,13 @@ async function sobrenomePrimeiro() {
 }
 
 async function pesquisarPorNome() {
-  const { nome } = await prompts({
-    type: 'input',
-    name: 'nome',
-    message: 'Digite o nome para pesquisar:'
-  });
+  const nome = await input('Digite o nome para pesquisar:');
 
   const registros = await api.lerTodos();
   const resultados = registros.filter(registro => registro.nome.toLowerCase().startsWith(nome.toLowerCase()));
-  resultados.map(registro => {
+  resultados.forEach(registro => {
     console.log(`${registro.id} - ${registro.nome} - ${registro.email}`);
   });
 }
 
-exibirMenu(); // Inicia o menu interativo
+exibirMenu();
