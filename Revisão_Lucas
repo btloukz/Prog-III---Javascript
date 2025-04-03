@@ -1,0 +1,40 @@
+import {select} from '@inquirer/prompts'
+import api from './CrudAPI.js'
+
+async function menu() {
+    const opcao = await select({
+        message: "Escolha uma opção...",
+        choices: [
+            { title: 'Criar novo registro', value: 'criar' },
+            { title: 'Listar todos os registros', value: 'listarTodos' },
+            { title: 'Buscar registro por ID', value: 'buscarPorId' },
+            { title: 'Atualizar registro', value: 'atualizar' },
+            { title: 'Excluir registro', value: 'excluir' },
+            { title: 'Tudo em maiúscula', value: 'tudoMaiuscula' },
+            { title: 'Sobrenome primeiro', value: 'sobrenomePrimeiro' },
+            { title: 'Pesquisa por nome', value: 'pesquisarPorNome' },
+            { title: 'Sair', value: 'sair' },
+        ]
+    })
+
+    switch(opcao){
+        case 'criar':
+            break;
+        case 'listarTodos':
+            break;
+        case 'buscarPorId':
+            break;
+        case 'atualizar':
+            break;
+        case 'excluir':
+            break;
+        case 'tudoMaiuscula':
+            break;
+        case 'sobrenomePrimeiro':
+            break;
+        case 'pesquisarPorNome':
+            break;
+    }
+    await menu();
+}
+menu();
