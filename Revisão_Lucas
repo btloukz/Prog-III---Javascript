@@ -28,8 +28,10 @@ async function menu() {
            await buscaPorId()
             break;
         case 'atualizar':
+            await atualiza()
             break;
         case 'excluir':
+            await excluir()
             break;
         case 'tudoMaiuscula':
             break;
@@ -63,6 +65,32 @@ async function buscaPorId(){
         console.log(`Aqui está o resultado da sua busca pelo id ${valor.id} - Nome: ${valor.nome}, Email: ${valor.email}`)
     } else {
         console.error("Registro inexistente!")
+    }
+}
+
+async function atualiza(){
+    let id = await number({message: "Digite o ID que deseja realizar alterações: "})
+    let nome = await input({message: "Diga o novo nome do ID " + id + ":"})
+    let email = await input({message: "Diga o novo email do ID " + id + ":"})
+    let dadosAtualizados = {}
+
+    if (nome){dadosAtualizados.nome = nome}
+    if (email){dadosAtualizados.email = email}
+    try {
+        let novosDados = await api.atualizar(id, dadosAtualizados)
+        console.log(`O nome nome do ID ${novosDados.id} é ${novosDados.nome}, e seu email é ${novosDados.email}.`)
+        } catch(erro){
+            console.error(erro.message)
+        }
+}
+
+async function excluir(){
+    let id = await number({message: "Digite o ID que deseja realizar a exclusão: "})
+    try {
+        let excluido = await api.excluir(id)
+        console.log(`Você excluiu o usuário de ID ${id}.`)
+    } catch(erro){
+        console.error(erro.message)
     }
 }
 menu();
