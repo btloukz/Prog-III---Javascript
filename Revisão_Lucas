@@ -34,6 +34,7 @@ async function menu() {
             await excluir()
             break;
         case 'tudoMaiuscula':
+            await upper()
             break;
         case 'sobrenomePrimeiro':
             break;
@@ -92,5 +93,14 @@ async function excluir(){
     } catch(erro){
         console.error(erro.message)
     }
+}
+
+
+async function upper(){
+    let maiuscula = await api.lerTodos({})
+    console.log(`Você deixou tudo maiusculo, veja abaixo: `)
+    maiuscula.forEach((elemento)=>{
+        console.log(`ID: ${elemento.id} - ${elemento.nome.toUpperCase()} - ${elemento.email.toUpperCase()}`)
+    })
 }
 menu();
