@@ -1,4 +1,4 @@
-import {select} from '@inquirer/prompts'
+import {select, input} from '@inquirer/prompts'
 import api from './CrudAPI.js'
 
 async function menu() {
@@ -19,6 +19,7 @@ async function menu() {
 
     switch(opcao){
         case 'criar':
+            await criarRegistro ()
             break;
         case 'listarTodos':
             break;
@@ -37,4 +38,13 @@ async function menu() {
     }
     await menu();
 }
+
+async function criarRegistro (){
+    let nome = await input({message: "Digite seu nome para registro: "})
+    let email = await input({message: "Agora, digite seu email: "})
+
+    let novoRegistro = await api.criar({nome, email})
+    console.log(`Seja bem vindo! Suas informações: ID: ${novoRegistro.id} - Nome: ${novoRegistro.nome} - Email: ${novoRegistro.email}`)
+}
+
 menu();
