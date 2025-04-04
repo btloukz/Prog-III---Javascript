@@ -1,4 +1,4 @@
-import {select, input} from '@inquirer/prompts'
+import {select, input, number} from '@inquirer/prompts'
 import api from './CrudAPI.js'
 
 async function menu() {
@@ -22,8 +22,10 @@ async function menu() {
             await criarRegistro ()
             break;
         case 'listarTodos':
+            await lerRegistros ()
             break;
         case 'buscarPorId':
+           await buscaPorId()
             break;
         case 'atualizar':
             break;
@@ -47,4 +49,20 @@ async function criarRegistro (){
     console.log(`Seja bem vindo! Suas informações: ID: ${novoRegistro.id} - Nome: ${novoRegistro.nome} - Email: ${novoRegistro.email}`)
 }
 
+async function lerRegistros (){
+    let leitura = await api.lerTodos({})
+    leitura.forEach((registro)=>{
+        console.log(`ID: ${registro.id}, Nome: ${registro.nome}, Email: ${registro.email}`)
+    })
+}
+
+async function buscaPorId(){
+    let id = await number({message: "Digite o ID pra capturarmos: "})
+    let valor = await api.lerPorId(id)
+    if(valor){
+        console.log(`Aqui está o resultado da sua busca pelo id ${valor.id} - Nome: ${valor.nome}, Email: ${valor.email}`)
+    } else {
+        console.error("Registro inexistente!")
+    }
+}
 menu();
