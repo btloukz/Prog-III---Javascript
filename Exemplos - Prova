@@ -1,0 +1,72 @@
+USOS DE TYPEOF E NaN
+
+let num = 42;
+let texto = "Hello, World!";
+let objeto = { nome: "Maria", idade: 30 };
+let arr = [1, 2, 3];
+
+console.log(typeof num);       // "number"
+console.log(typeof texto);     // "string"
+console.log(typeof objeto);    // "object"
+console.log(typeof arr);       // "object" (Note que arrays são objetos em JavaScript)
+
+let resultado = 0 / 0;  // NaN
+console.log(isNaN(resultado));  // true
+
+let numero = 10;
+console.log(isNaN(numero));  // false
+
+Variaveis ASSINCRONAS
+
+let minhaPromise = new Promise((resolve, reject) => {
+    let sucesso = true;
+    
+    if (sucesso) {
+        resolve("Operação realizada com sucesso!");
+    } else {
+        reject("Algo deu errado!");
+    }
+});
+
+// Usando .then() e .catch()
+minhaPromise
+    .then((resultado) => {
+        console.log(resultado);  // "Operação realizada com sucesso!"
+    })
+    .catch((erro) => {
+        console.log(erro);  // "Algo deu errado!"
+    });
+
+
+EXEMPLOS COM CHECKBOXS E OUTROS
+
+const inquirer = require('inquirer');
+
+async function selecionarLinguagens() {
+    const linguagens = await inquirer.prompt([
+        'Quais linguagens você conhece?',
+        {
+            choices: ['JavaScript', 'Python', 'Java', 'C++']
+        }
+    ]);
+    console.log(`Você conhece: ${linguagens}`);
+}
+
+selecionarLinguagens();
+
+CONFIRM
+
+const inquirer = require('inquirer');
+
+async function confirmarContinuacao() {
+    const continuar = await inquirer.prompt([
+        'Você deseja continuar?',
+        {
+            choices: ['Sim', 'Não']
+        }
+    ]);
+    console.log(`Você escolheu: ${continuar}`);
+}
+
+confirmarContinuacao();
+
