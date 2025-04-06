@@ -1,0 +1,133 @@
+import {select, input, number} from '@inquirer/prompts'
+import api from './CrudAPI.js'
+
+async function menu() {
+    const opcao = await select({
+        message: "Escolha uma opção...",
+        choices: [
+            { name: 'Criar novo registro', value: 'criar' },
+            { name: 'Listar todos os registros', value: 'listarTodos' },
+            { name: 'Buscar registro por ID', value: 'buscarPorId' },
+            { name: 'Atualizar registro', value: 'atualizar' },
+            { name: 'Excluir registro', value: 'excluir' },
+            { name: 'Tudo em maiúscula', value: 'tudoMaiuscula' },
+            { name: 'Sobrenome primeiro', value: 'sobrenomePrimeiro' },
+            { name: 'Pesquisa por nome', value: 'pesquisarPorNome' },
+            { name: 'Sair', value: 'sair' },
+        ]
+    })
+
+    switch(opcao){
+        case 'criar':
+            await criarRegistro ()
+            break;
+        case 'listarTodos':
+            await lerRegistros ()
+            break;
+        case 'buscarPorId':
+           await buscaPorId()
+            break;
+        case 'atualizar':
+            await atualiza()
+            break;
+        case 'excluir':
+            await excluir()
+            break;
+        case 'tudoMaiuscula':
+            await upper()
+            break;
+        case 'sobrenomePrimeiro':
+            await sobrenome()
+            break;
+        case 'pesquisarPorNome':
+            await pesquisaNome()
+            break;
+        case 'sair':
+            console.log("ENCERRANDO...")
+            return
+            break;
+    }
+    await menu();
+}
+
+async function criarRegistro (){
+    let nome = await input({message: "Digite seu nome para registro: "})
+    let email = await input({message: "Agora, digite seu email: "})
+
+    let novoRegistro = await api.criar({nome, email})
+    console.log(`Seja bem vindo! Suas informações: ID: ${novoRegistro.id} - Nome: ${novoRegistro.nome} - Email: ${novoRegistro.email}`)
+}
+
+async function lerRegistros (){
+    let leitura = await api.lerTodos({})
+    leitura.forEach((registro)=>{
+        console.log(`ID: ${registro.id}, Nome: ${registro.nome}, Email: ${registro.email}`)
+    })
+}
+
+async function buscaPorId(){
+    let id = await number({message: "Digite o ID pra capturarmos: "})
+    let valor = await api.lerPorId(id)
+    if(valor){
+        console.log(`Aqui está o resultado da sua busca pelo id ${valor.id} - Nome: ${valor.nome}, Email: ${valor.email}`)
+    } else {
+        console.error("Registro inexistente!")
+    }
+}
+
+async function atualiza(){
+    let id = await number({message: "Digite o ID que deseja realizar alterações: "})
+    let nome = await input({message: "Diga o novo nome do ID " + id + ":"})
+    let email = await input({message: "Diga o novo email do ID " + id + ":"})
+    let dadosAtualizados = {}
+
+    if (nome){dadosAtualizados.nome = nome}
+    if (email){dadosAtualizados.email = email}
+    try {
+        let novosDados = await api.atualizar(id, dadosAtualizados)
+        console.log(`O nome nome do ID ${novosDados.id} é ${novosDados.nome}, e seu email é ${novosDados.email}.`)
+        } catch(erro){
+            console.error(erro.message)
+        }
+}
+
+async function excluir(){
+    let id = await number({message: "Digite o ID que deseja realizar a exclusão: "})
+    try {
+        let excluido = await api.excluir(id)
+        console.log(`Você excluiu o usuário de ID ${id}.`)
+    } catch(erro){
+        console.error(erro.message)
+    }
+}
+
+
+async function upper(){
+    let maiuscula = await api.lerTodos()
+    console.log(`Você deixou tudo maiusculo, veja abaixo: `)
+    maiuscula.forEach((elemento)=>{
+        console.log(`ID: ${elemento.id} - ${elemento.nome.toUpperCase()} - ${elemento.email.toUpperCase()}`)
+    })
+}
+
+async function sobrenome(){
+    let sobrenomePrimeiro = await api.lerTodos()
+    console.log("Deixando o sobrenome primeiro...")
+    sobrenomePrimeiro.forEach((elemento)=>{
+        let separado = elemento.nome.split(" ")
+        let sobre_nome = `${separado[1]}, ${separado[0]}`
+        console.log(`Id: ${elemento.id} - ${sobre_nome} - ${elemento.email}`)
+    })
+}
+
+async function pesquisaNome(){
+    let nome = await input({message: "Digite o nome que deseja pesquisar:"})
+
+    let registros = await api.lerTodos()
+    let procura = registros.filter((elemento)=>elemento.nome.toLowerCase().startsWith(nome.toLowerCase()))
+    procura.forEach((elemento)=>{
+        console.log(`Aqui estão os dados de ${nome}:`),
+        console.log(`Id: ${elemento.id}, Nome: ${elemento.nome}, Email: ${elemento.email}`)
+    })
+}
+menu();
