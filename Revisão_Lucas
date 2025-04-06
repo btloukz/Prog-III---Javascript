@@ -5,15 +5,15 @@ async function menu() {
     const opcao = await select({
         message: "Escolha uma opção...",
         choices: [
-            { title: 'Criar novo registro', value: 'criar' },
-            { title: 'Listar todos os registros', value: 'listarTodos' },
-            { title: 'Buscar registro por ID', value: 'buscarPorId' },
-            { title: 'Atualizar registro', value: 'atualizar' },
-            { title: 'Excluir registro', value: 'excluir' },
-            { title: 'Tudo em maiúscula', value: 'tudoMaiuscula' },
-            { title: 'Sobrenome primeiro', value: 'sobrenomePrimeiro' },
-            { title: 'Pesquisa por nome', value: 'pesquisarPorNome' },
-            { title: 'Sair', value: 'sair' },
+            { name: 'Criar novo registro', value: 'criar' },
+            { name: 'Listar todos os registros', value: 'listarTodos' },
+            { name: 'Buscar registro por ID', value: 'buscarPorId' },
+            { name: 'Atualizar registro', value: 'atualizar' },
+            { name: 'Excluir registro', value: 'excluir' },
+            { name: 'Tudo em maiúscula', value: 'tudoMaiuscula' },
+            { name: 'Sobrenome primeiro', value: 'sobrenomePrimeiro' },
+            { name: 'Pesquisa por nome', value: 'pesquisarPorNome' },
+            { name: 'Sair', value: 'sair' },
         ]
     })
 
@@ -37,8 +37,14 @@ async function menu() {
             await upper()
             break;
         case 'sobrenomePrimeiro':
+            await sobrenome()
             break;
         case 'pesquisarPorNome':
+            await pesquisaNome()
+            break;
+        case 'sair':
+            console.log("ENCERRANDO...")
+            return
             break;
     }
     await menu();
@@ -97,10 +103,31 @@ async function excluir(){
 
 
 async function upper(){
-    let maiuscula = await api.lerTodos({})
+    let maiuscula = await api.lerTodos()
     console.log(`Você deixou tudo maiusculo, veja abaixo: `)
     maiuscula.forEach((elemento)=>{
         console.log(`ID: ${elemento.id} - ${elemento.nome.toUpperCase()} - ${elemento.email.toUpperCase()}`)
+    })
+}
+
+async function sobrenome(){
+    let sobrenomePrimeiro = await api.lerTodos()
+    console.log("Deixando o sobrenome primeiro...")
+    sobrenomePrimeiro.forEach((elemento)=>{
+        let separado = elemento.nome.split(" ")
+        let sobre_nome = `${separado[1]}, ${separado[0]}`
+        console.log(`Id: ${elemento.id} - ${sobre_nome} - ${elemento.email}`)
+    })
+}
+
+async function pesquisaNome(){
+    let nome = await input({message: "Digite o nome que deseja pesquisar:"})
+
+    let registros = await api.lerTodos()
+    let procura = registros.filter((elemento)=>elemento.nome.toLowerCase().startsWith(nome.toLowerCase()))
+    procura.forEach((elemento)=>{
+        console.log(`Aqui estão os dados de ${nome}:`),
+        console.log(`Id: ${elemento.id}, Nome: ${elemento.nome}, Email: ${elemento.email}`)
     })
 }
 menu();
