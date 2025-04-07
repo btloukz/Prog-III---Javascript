@@ -20,6 +20,10 @@ async function menu() {
             { name: 'Nome maior que X', value: 'numero'},
             { name: 'Mostrar os IDs', value: 'id'},
             { name: 'Emails em maiúsculo', value: 'eMaiusculo'},
+            { name: 'Contar A', value: 'contar_A'},
+            { name: 'Contar Letras', value: 'contar_letras'},
+            { name: 'Nomes pares', value: 'nome_par'},
+            { name: 'Nomes mais longo', value: 'nome_longo'},
             { name: 'Sair', value: 'sair' },
         ]
     })
@@ -70,12 +74,22 @@ async function menu() {
         case 'eMaiusculo':
             await eMaiusculo()
             break;
+        case 'contar_A':
+            await contar_A()
+            break;
+        case 'contar_letras':
+            await contar_letras()
+            break;
+        case 'nome_par':
+            await nome_par()
+            break;
+        case 'nome_longo':
+            await nome_longo()
+            break;
         case 'sair':
             console.log("ENCERRANDO...")
             return
-            break;
     }
-    await menu();
 }
 
 async function criarRegistro (){
@@ -231,4 +245,52 @@ async function eMaiusculo(){
     })
 }
 
-menu();
+async function contar_A(){
+    let dados = await api.lerTodos()
+    let contador = 0
+    dados.forEach((elemento)=>{
+        let nome = elemento.nome.toLowerCase()
+        nome.split("").forEach((letra)=>{
+            if(letra === "a"){
+            contador+=1
+        }})
+    })
+    console.log(`A quantidade de letras "A" ou "a" é de ${contador}`)
+}
+
+async function contar_letras(){
+    let dados = await api.lerTodos()
+    let contador = 0
+    dados.forEach((elemento)=>{
+        let nome = elemento.nome.replace(" ", "")
+        let letra = nome.split("")
+        let soma = letra.forEach((letra)=>{
+            if(letra != ""){
+                contador+=1
+            }
+        })
+    })
+    console.log(contador)
+}
+
+async function nome_par(){
+    let dados = await api.lerTodos()
+    dados.filter((elemento)=>{
+        if (elemento.nome.length % 2 == 0){
+            console.log(elemento.nome)
+        }
+    })
+}
+
+async function nome_longo(){
+    let dados = await api.lerTodos()
+    let nome_longo = dados.reduce((menor, maior)=>{
+        if(menor.nome.length > maior.nome.length){
+            return menor
+        } else {
+            return maior
+        }
+    })
+    console.log(nome_longo.nome)
+}
+await menu();
