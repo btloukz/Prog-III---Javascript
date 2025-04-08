@@ -1,0 +1,66 @@
+// Mini projeto: Demonstrando todos os tipos de prompt do @inquirer/prompts
+
+import input from '@inquirer/input';
+import number from '@inquirer/number';
+import confirm from '@inquirer/confirm';
+import select from '@inquirer/select';
+import checkbox from '@inquirer/checkbox';
+import password from '@inquirer/password';
+
+async function menu() {
+  const opcao = await select({
+    message: "Escolha um tipo de prompt para testar:",
+    choices: [
+      { name: "Texto (input)", value: "input" },
+      { name: "Número (number)", value: "number" },
+      { name: "Confirmação (confirm)", value: "confirm" },
+      { name: "Senha (password)", value: "password" },
+      { name: "Caixa de seleção (checkbox)", value: "checkbox" },
+      { name: "Sair", value: "sair" },
+    ]
+  });
+
+  switch (opcao) {
+    case 'input': {
+      const nome = await input({ message: "Digite seu nome:" });
+      console.log(`Você digitou: ${nome}`);
+      break;
+    }
+    case 'number': {
+      const idade = await number({ message: "Digite sua idade:" });
+      console.log(`Sua idade é: ${idade}`);
+      break;
+    }
+    case 'confirm': {
+      const resposta = await confirm({ message: "Você deseja continuar?" });
+      console.log(`Você respondeu: ${resposta}`);
+      break;
+    }
+    case 'password': {
+      const senha = await password({ message: "Digite sua senha:" });
+      console.log(`Senha recebida: ${'*'.repeat(senha.length)}`);
+      break;
+    }
+    case 'checkbox': {
+      const escolhas = await checkbox({
+        message: "Escolha suas linguagens favoritas:",
+        choices: [
+          { name: "JavaScript", value: "js" },
+          { name: "Python", value: "py" },
+          { name: "Java", value: "java" },
+          { name: "C#", value: "csharp" }
+        ]
+      });
+      console.log(`Você escolheu: ${escolhas.join(", ")}`);
+      break;
+    }
+    case 'sair': {
+      console.log("Saindo...");
+      return;
+    }
+  }
+
+  await menu(); // loop até escolher sair
+}
+
+menu();
