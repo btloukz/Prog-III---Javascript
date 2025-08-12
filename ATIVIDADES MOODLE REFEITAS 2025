@@ -1,0 +1,94 @@
+//EXERCICIOS FILTER//
+
+//NUMERO 1//
+
+// let array = [12,21,22,67,88]
+// let pares = array.filter(valor=>valor%2===0)
+// console.log(pares)
+
+//NUMERO 2//
+
+// let array = [2,3,4,5,6,7]
+// let primos = array.filter((valor)=>{
+//     if(valor < 2){
+//         return false
+//     }
+//     for(let i = 2; i < valor; i++){
+//         if(valor % i === 0){
+//             return false
+//         }
+//     }
+//     return valor
+// })
+
+// console.log(primos)
+
+//NUMERO 3//
+
+// let array = ["a", "ab", "abc", "b", "abcde", "c", "abcd"]
+// let filtra = array.filter((string)=>{
+//     if(string.length <= 3){
+//         return false
+//     }
+//     return true
+// })
+// console.log(filtra)
+
+//NUMERO 4//
+
+// let array = [{ativo: true}, {ativo: false}]
+// let filtra = array.filter(valor=>valor.ativo)
+// console.log(filtra)
+
+//EXERCICIOS COM MAP//
+
+//NUMERO 5//
+
+// let array = [2,5,7,9]
+// array.splice(3,0,11)
+// let dobro = array.map(valor=>valor*2)
+// console.log(dobro.join(" - "))
+
+//NUMERO 6//
+
+// let array = ["hello", "world"]
+// let string = array.map(string=>string.toUpperCase())
+// console.log(string.join(" "))
+
+//NUMERO 7//
+
+// let array = [{nome: "Alice"}, {nome: "Lucas"}]
+// let nomes = array.map((valor)=>{
+//     return valor.nome
+// })
+
+// console.log(`${nomes[1]} e ${nomes[0]} se conhecem desde 2017!`)
+
+//NUMERO 8//
+
+// let array = [11,22,33,41,48,6]
+// let dobrar = array.map((valor)=>{
+//     if(valor%2===0){
+//         return valor*2
+//     } else {
+//         return valor
+//     }
+
+// })
+// console.log(dobrar)
+
+//NUMERO 9//
+
+// let array = [2,5,7,90]
+// let sufixo = array.map(valor=>valor+"kg")
+// console.log(sufixo)
+
+//NUMERO 10//
+
+// let array = [{nome: "apple", preco: 2}, {nome: "banana", preco: 3}]
+// let preco = array.map(valor=>"R$" + valor.preco.toFixed(2).replace(".", ","))
+// console.log(preco)
+
+//NUMERO 11//
+
+
