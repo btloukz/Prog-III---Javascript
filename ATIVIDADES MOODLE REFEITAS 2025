@@ -91,4 +91,107 @@
 
 //NUMERO 11//
 
+// let array = [1,2,3,4]
+
+// let multiplicar = array.map((num)=>{
+//     if(num%2===0){
+//         return num*2
+//     } else {
+//         return num*3
+//     }
+// })
+
+// console.log(multiplicar)
+
+//NUMERO 12//
+
+// let string = ["maça", "banana"]
+
+// let prefixo = string.map((item)=>{
+//     return `Item: ${item}`
+// })
+
+// console.log(prefixo)
+
+//NUMERO 13//
+
+// let array = [{preco: 76, quantidade: 23}, {preco: 12, quantidade: 3}]
+
+// let total = array.map((valor)=>{
+//     return `R$${(valor.preco*valor.quantidade).toFixed(2).replace(".", ",")}`
+// })
+
+// console.log(total)
+
+//NUMERO 14
+
+// let data = ["2024-04-21"]
+
+// let formata = data.map((valor)=>{let [ano, mes, dia] = valor.split("-")
+//     return `${dia}/${mes}/${ano}`
+// })
+
+// console.log(formata)
+
+//NUMERO 15
+
+// let array = ["leite", 'ovos']
+
+// let novo = array.map((valor)=>{
+//     return `<li>${valor}<li>`
+// })
+
+// console.log(novo)
+
+//NUMERO 16
+
+// let booleano = [true, false, true]
+
+// let verifica = booleano.map((valor)=>{
+//     if(valor){
+//         return valor = 1
+//     } else {
+//         return valor = 0
+//     }
+// })
+
+// console.log(verifica)
+
+//NUMERO 17
+
+// let array = [[1,2], [3,6,7], [2,5]]
+
+// let soma = array.map(valor=>valor.reduce((a,b)=>{return a + b}))
+
+// console.log(soma)
+
+//REDUCE
+
+//NUMERO 18
+
+// let array = [1,2,3]
+// let soma = array.reduce((a,b)=>{
+//     return a+b
+// })
+// console.log(soma)
+
+//NUMERO 19
+
+// let array = [7,2,3]
+// let soma = array.reduce((a,b)=>{
+//     return a*b
+// })
+// console.log(soma)
+
+//NUMERO 20
+
+// let string = ["a", "abc", "cde", "abcde", "ab"]
+// let retorna = string.reduce((a,b)=>{
+//     if (a.length>b.length){
+//         return a
+//     } else {
+//         return b
+//     }
+// })
+// console.log(retorna)
 
