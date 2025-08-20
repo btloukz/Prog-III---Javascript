@@ -224,3 +224,30 @@
 // let array = [1,2,4]
 // let verifica = array.every(valor=>valor>0)
 // console.log(verifica)
+
+//NUMERO 26
+
+// let array = [8,10,2,17,28,9]
+// let procura = array.find(valor=>valor>10)
+// console.log(procura)
+
+//NUMERO 27
+
+// let array = ["Amore", "Banana", "Maçã", "Uva"]
+// let letra = array.find(valor=>valor.includes("a"))
+// console.log(letra)
+
+//NUMERO 28
+
+// let array = [{id:1}, {id:2}, {id:3}]
+// let find = array.find(valor=>valor.id==2)
+// console.log(find)
+
+//NUMERO 29
+
+// let array = [-4, 3, -8, 6, 4]
+// let numero = array.find(valor=>valor>0 && valor%2===0)
+// console.log(numero)
+
+//-------------------------------------------------------------------------------------------------//
+
