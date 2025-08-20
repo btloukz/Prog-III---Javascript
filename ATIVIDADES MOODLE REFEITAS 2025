@@ -195,3 +195,32 @@
 // })
 // console.log(retorna)
 
+//NUMERO 21 
+
+// let array = ["Hello", " ", "World"]
+// let junta = array.reduce((a,b)=>a+b)
+// console.log(junta)
+
+//NUMERO 22
+
+// let array = [2,4,6,7]
+// let verifica = array.every((valor)=>valor%2===0)
+// console.log(verifica)
+
+//NUMERO 23
+
+// let array = ["a", "ab"]
+// let verifica = array.every((valor)=>valor.length>=1)
+// console.log(verifica)
+
+//NUMERO 24
+
+// let array = [{id:1}, {id:2}, {id:3}]
+// let verifica = array.every(valor=>valor.id)
+// console.log(verifica)
+
+//NUMERO 25
+
+// let array = [1,2,4]
+// let verifica = array.every(valor=>valor>0)
+// console.log(verifica)
