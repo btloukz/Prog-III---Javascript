@@ -1,0 +1,57 @@
+import leitor from 'readline-sync'
+
+// let nome = leitor.question("Seu nome: ")
+// console.log(nome)
+
+// let valor="a"||"b"
+// console.log(valor)
+
+// console.log("1"===1)
+
+//QUESTION RETORNA STRING - TEM QUE CONVERTER PRA NUMBER
+
+// let a=leitor.question("Numero a: ")
+// let b=leitor.question("Numero b: ")
+// let total = Number(a) + Number(b)
+// console.log(total)
+
+// let numero = true
+// let a;
+// let b;
+// while(numero){
+//    a=leitor.question("Valor a: ")
+//    if(a!=""&&!isNaN(a)){
+//         b=leitor.question("Valor b: ")
+//         if(b!=""&&!isNaN(b)){
+//             numero = false
+//         } else {
+//             console.error("Invalido")
+//         }
+//    } else {
+//         console.error("Invalid Number")
+//    }
+// }
+
+// function trata(valor){
+//     let numero = true
+//     let a;
+//     while(numero){
+//         a = leitor.question(valor)
+//         if(a!=""&&!isNaN(a)){
+//             numero = false
+//         } else {
+//             console.error("Numero inválido")
+//         }
+//     }
+//     return Number(a);
+// }
+
+// let valor1=trata("Informe o primeiro valor:");
+// let valor2=trata("Informe o segundo valor");
+// let total = valor1 + valor2
+// console.log(total)
+
+
+
+        
+    
