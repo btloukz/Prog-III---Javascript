@@ -51,6 +51,29 @@ import leitor from 'readline-sync'
 // let total = valor1 + valor2
 // console.log(total)
 
+import leitor from 'readline-sync'
+
+function trata(){
+    let qtd = leitor.question("Informe a quantidade de numeros que voce quer informar: ")
+    console.log(`Você informou que quer digitar ${qtd} numeros...Vamos lá!`)
+    let array = []
+    for(let i=0;i<qtd;i++){
+        while(true){
+            let num = leitor.question("Informe o numero: ")
+            if(num!=""&&!isNaN(Number(num))){
+                array.push(Number(num))
+                break
+            } else {
+                console.error("Errado, digite outro.")
+            }
+        }
+        
+    }
+    let soma = array.reduce((a,b)=>a+b)
+    console.log(soma)
+} 
+
+trata()
 
 
         
