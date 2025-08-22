@@ -251,3 +251,56 @@
 
 //-------------------------------------------------------------------------------------------------//
 
+//NUMERO 30
+
+// let array = [-5,4,7,-9,-4,6,7]
+// let filtra = array.filter(valor=>valor>0).map(valor=>valor*valor).reduce((a,b)=>a+b)
+// console.log(filtra)
+
+//NUMERO 31
+
+// let array = [3,6,2,8,9,5,2,10,3,6,16,18,21,2,10,12]
+// let filtra = array.filter(valor=>valor%2==0).find(valor=>valor>10)
+// console.log(filtra)
+
+//NUMERO 32
+
+// let array = ["ab", "b", "abc", "abbbcce", "abcd"]
+// let filtra = array.map((valor)=>valor.length).filter(valor=>valor>3).every(valor=>valor%2==0)
+// console.log(filtra)
+
+//NUMERO 33
+
+// let array = [{nome: "A", ativo: true}, {nome: "B", ativo: false}, {nome: "C", ativo: true}]
+// let filtra = array.filter(valor=>valor.ativo).map(valor=>valor.nome).join(", ")
+// console.log(filtra)
+
+//NUMERO 34
+
+// let array = [{estoque:true, preco: 90}, {preco: 150, estoque: false}]
+// let filtra = [array.find(valor=>valor.preco>100)].every(valor=>valor.estoque)
+// console.log(filtra)
+
+//NUMERO 35
+
+// let array = [4,6,8]
+// let filtra = array.map(valor=>valor*valor).filter(valor=>valor>30).reduce((a,b)=>a+b)
+// console.log(filtra)
+
+//NUMERO 36
+
+// let array = ["apple", "Avocado", "Banana"]
+// let filtra = array.filter(valor=>valor.toLowerCase().startsWith("a")).map(valor=>valor.toUpperCase()).every(valor=>valor.length>=5)
+// console.log(filtra)
+
+//NUMERO 37 - TRANSFORMA O REDUCE EM ARRAY, POIS COM REDUCE OU FIND DEIXA DE SER ARRAY
+
+// let array = [1,2,3,4,5,1]
+// let filtra = [array.reduce((a,b)=>a+b)].every(valor=>valor%2==0)
+// console.log(filtra)
+
+//NUMERO 38
+
+// let array = [16,36,49,64]
+// let filtra = array.filter(valor=>valor<50).map(valor=>valor**1/2).reduce((a,b)=>a*b)
+// console.log(filtra)
