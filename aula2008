@@ -75,6 +75,41 @@ function trata(){
 
 trata()
 
+//COM INCREMENTOS
+
+import leitor from 'readline-sync'
+
+function trata(){
+    let qtd = Number(leitor.question("Informe a quantidade de números que deseja tratar: "))
+    let array = []
+    for(let i=0;i<qtd;i++){
+        while(true){
+            let num = leitor.question(`Informe o número ${i+1}: `)
+            if(num!=""&&!isNaN(num)){
+                array.push(Number(num))
+                break
+            } else {
+                console.error("Invalido")
+            }
+        }
+    }
+    let soma = array.reduce((a,b)=>a+b)
+    console.log(`A soma da lista de ${array.length} números é: ${soma}`)
+
+    let media = soma/array.length
+    console.log(`A média é: ${media.toFixed(2)}`)
+
+    let maior = array.reduce((valor1,valor2)=>{
+        if(valor1>valor2){
+            return valor1
+        } else {
+            return valor2
+        }
+    })
+    console.log(`O maior número é ${maior}`)
+}
+
+trata()
 
         
     
