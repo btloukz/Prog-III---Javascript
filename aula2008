@@ -111,5 +111,33 @@ function trata(){
 
 trata()
 
+//NOVO EXERCICIO
+
+let qtd = Number(leitor.question("Informe quantos numeros quer tratar: "))
+let par = []
+let impar = []
+
+function trata(){
+    for(let i=0;i<qtd;i++){
+        while(true){
+            let num = Number(leitor.question(`Informe o ${i+1}º valor: `))
+            if(num!=""&&!isNaN(num)){
+                if(num%2==0){
+                    par.push(num)
+                    break
+                } else {
+                    impar.push(num)
+                    break
+                }
+            } else {
+                console.error("Invalido")
+            }
+        }
+    }
+    console.log(`A quantidade de números pares é ${par.length}`)
+    console.log("--------------------------------------------------------------")
+    console.log(`A quantidade de números impares é ${impar.length}`)
+}
+trata()
         
     
