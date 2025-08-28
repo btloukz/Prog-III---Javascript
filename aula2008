@@ -139,5 +139,78 @@ function trata(){
     console.log(`A quantidade de números impares é ${impar.length}`)
 }
 trata()
-        
+
+------------------------------------------------------
+// // let array = [4,5,7,8,9]
+// // let array2 = [10,67]
+// // let oi = array.concat(array2)
+
+// // console.log(oi.join(", "))
+
+// // let listab = [...array]
+
+// // console.log(listab)
+
+// let qtd = Number(leitor.question("Informe quantos numeros quer tratar: "))
+// let par = []
+// let impar = []
+
+// function trata(){
+//     for(let i=0;i<qtd;i++){
+//         while(true){
+//             let num = Number(leitor.question(`Informe o ${i+1}º valor: `))
+//             if(num!=""&&!isNaN(num)){
+//                 if(num%2==0){
+//                     par.push(num)
+//                     break
+//                 } else {
+//                     impar.push(num)
+//                     break
+//                 }
+//             } else {
+//                 console.error("Invalido")
+//             }
+//         }
+//     }
+//     console.log(`A quantidade de números pares é ${par.length}`)
+//     console.log("--------------------------------------------------------------")
+//     console.log(`A quantidade de números impares é ${impar.length}`)
+// }
+// trata()
+
+// class Pessoa {
+//     constructor(nome,idade){
+//         this.nome=nome
+//         this.idade=idade
+//     }
+
+//     exibir(){
+//         console.log(this.nome+" - "+this.idade);
+//     }
+// }
+// let pessoa1 = new Pessoa("Maria", 18)
+// pessoa1.exibir()    
+
+// //como o metodo idade esta senso chamado depois, sobescreve o "nsei"
+// let obj2={idade:"nsei",...pessoa1, nome: "Lucas"}
+// console.log(obj2)
+
+let lista = [2,4,6]
+
+function soma2(num){
+    return num + 2
+}
+
+function somaLista(lista, funcao){
+    let lista2 = [];
+    for (let index=0;index<lista.length;index++){
+        lista2.push(funcao(lista[index]))
+    }
+    return lista2
+}
+
+let total = somaLista.map(soma2)
+
+console.log(total)
+
     
